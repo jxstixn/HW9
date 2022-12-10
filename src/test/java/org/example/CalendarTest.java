@@ -21,5 +21,26 @@ class CalendarTest {
         assertEquals(expectedResult,actualResult);
     }
 
-// Implement test cases for the equivalent partitions
+    @ParameterizedTest
+    @ValueSource(ints = {1823, 1971, 202, 0, 2020})
+    public void Should_return_false(int year) {
+        Calendar calendar = new Calendar(year);
+
+        boolean expectedResult = false;
+        boolean actualResult = calendar.isLeapYear();
+
+        assertEquals(expectedResult,actualResult);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1996, 2000, 1976, 1992, 1948})
+    public void Should_return_true(int year) {
+        Calendar calendar = new Calendar(year);
+
+        boolean expectedResult = true;
+        boolean actualResult = calendar.isLeapYear();
+
+        assertEquals(expectedResult,actualResult);
+    }
+
 }
